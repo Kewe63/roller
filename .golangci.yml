@@ -1,19 +1,18 @@
 run:
-  concurrency: 4
-  timeout: 5m
-  modules-download-mode: readonly
-  # mempool and indexer code is borrowed from Tendermint
+  concurrency: 4                 # Number of concurrently running jobs
+  timeout: 5m                    # Timeout duration for the operation
+  modules-download-mode: readonly  # Download mode for modules (readonly)
   skip-dirs:
-    - mempool
+    - mempool                    # Directories to skip
     - state/indexer
     - state/txindex
   skip-files:
-    - da/celestia/mock/server.go
+    - da/celestia/mock/server.go # Files to skip
     - ./*_test.go
 
 linters:
-  disable-all: true
-  enable:
+  disable-all: true              # Disable all linters
+  enable:                         # Enable specific linters
     - gofmt
     - gosimple
     - govet
@@ -24,4 +23,4 @@ linters:
     - gocyclo
 
 issues:
-  exclude-use-default: false
+  exclude-use-default: false     # Exclude issues that use default settings
